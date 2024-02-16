@@ -97,8 +97,7 @@ def visualize_classifier(classifier, X, y, title=''):
     # Specify the ticks on the X and Y axes
     plt.xticks((np.arange(int(X[:, 0].min() - 1), int(X[:, 0].max() + 1), 1.0)))
     plt.yticks((np.arange(int(X[:, 1].min() - 1), int(X[:, 1].max() + 1), 1.0)))
-
-    st.plot(plt)
+    st.pyplot()
     
 #run the app
 if __name__ == "__main__":
