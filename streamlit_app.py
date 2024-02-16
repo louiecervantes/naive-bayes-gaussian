@@ -77,27 +77,29 @@ def visualize_classifier(classifier, X, y, title=''):
 
     # Reshape the output array
     output = output.reshape(x_vals.shape)
-
-    # Create a plot
-    plt.figure()
+    
+    # Create the figure and axes objects
+    fig, ax = plt.subplots()
 
     # Specify the title
-    plt.title(title)
-
-    # Choose a color scheme for the plot 
-    plt.pcolormesh(x_vals, y_vals, output, cmap=plt.cm.gray)
-
-    # Overlay the training points on the plot 
-    plt.scatter(X[:, 0], X[:, 1], c=y, s=75, edgecolors='black', linewidth=1, cmap=plt.cm.Paired)
-
+    ax.set_title(title)
+    
+    # Choose a color scheme for the plot
+    ax.pcolormesh(x_vals, y_vals, output, cmap=plt.cm.gray)
+    
+    # Overlay the training points on the plot
+    ax.scatter(X[:, 0], X[:, 1], c=y, s=75, edgecolors='black', linewidth=1, cmap=plt.cm.Paired)
+    
     # Specify the boundaries of the plot
-    plt.xlim(x_vals.min(), x_vals.max())
-    plt.ylim(y_vals.min(), y_vals.max())
-
+    ax.set_xlim(x_vals.min(), x_vals.max())
+    ax.set_ylim(y_vals.min(), y_vals.max())
+    
     # Specify the ticks on the X and Y axes
-    plt.xticks((np.arange(int(X[:, 0].min() - 1), int(X[:, 0].max() + 1), 1.0)))
-    plt.yticks((np.arange(int(X[:, 1].min() - 1), int(X[:, 1].max() + 1), 1.0)))
-    st.pyplot()
+    ax.set_xticks(np.arange(int(X[:, 0].min() - 1), int(X[:, 0].max() + 1), 1.0))
+    ax.set_yticks(np.arange(int(X[:, 1].min() - 1), int(X[:, 1].max() + 1), 1.0))
+
+    
+    st.pyplot(fig)
     
 #run the app
 if __name__ == "__main__":
