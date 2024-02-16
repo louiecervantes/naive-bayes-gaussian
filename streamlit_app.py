@@ -33,8 +33,6 @@ def app():
     if st.button('Start'):
         df = pd.read_csv('overlapped.csv', header=None)
         # st.dataframe(df, use_container_width=True)  
-        df = labeltonumeric(df, 'Sex')
-        df = labeltonumeric(df, 'Embarked')
         
         # display the dataset
         st.dataframe(df, use_container_width=True)  
