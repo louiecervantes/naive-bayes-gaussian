@@ -5,7 +5,7 @@ import streamlit as st
 import altair as alt
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -46,10 +46,7 @@ def app():
             test_size=0.2, random_state=42)
 
         # Create the logistic regression 
-        clf = LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-                        intercept_scaling=1, max_iter=100, multi_class='multinomial',
-                        n_jobs=1, penalty='l2', random_state=42, solver='lbfgs',
-                        tol=0.0001, verbose=0, warm_start=False)
+        clf = GaussianNB()
 
         clf.fit(X_train,y_train)
 
