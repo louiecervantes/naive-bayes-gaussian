@@ -39,7 +39,7 @@ def app():
 
         #load the data and the labels
         X = df.values[:,0:-1]
-        y = df.values[:,-1].astype(int)            
+        y = df.values[:,-1]          
         
         # Split the dataset into training and testing sets
         X_train, X_test, y_train, y_test = train_test_split(X, y, \
@@ -54,13 +54,6 @@ def app():
         accuracy = clf.score(X_test, y_test)
         st.write('accuracy = ' + str(accuracy))
         st.text(classification_report(y_test, clf.predict(X_test)))
-        
-# Convert string data to numerical data
-def labeltonumeric(df, column):
-    from sklearn.preprocessing import LabelEncoder
-    le = LabelEncoder()
-    df[column] = le.fit_transform(df[column])
-    return df
 
 
 
